@@ -412,7 +412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.12.9":
+"@babel/plugin-proposal-decorators@npm:^7.12.9, @babel/plugin-proposal-decorators@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/plugin-proposal-decorators@npm:7.25.9"
   dependencies:
@@ -11734,6 +11734,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-native-xenon@workspace:."
   dependencies:
+    "@babel/plugin-proposal-decorators": "npm:^7.25.9"
     "@commitlint/config-conventional": "npm:^17.0.2"
     "@evilmartians/lefthook": "npm:^1.5.0"
     "@react-native/eslint-config": "npm:^0.73.1"

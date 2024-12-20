@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { Frozen } from '../utils';
 import Interceptor from './Interceptor';
 
 const originalConsoleError = console.error;
@@ -21,11 +22,13 @@ export default class ConsoleInterceptor extends Interceptor {
 
   private callback: ((type: string, args: any[]) => void) | null = null;
 
+  @Frozen()
   setCallback(callback: typeof this.callback) {
     this.callback = callback;
     return this;
   }
 
+  @Frozen()
   enableInterception(): void {
     if (this.isInterceptorEnabled) return;
 
@@ -94,6 +97,7 @@ export default class ConsoleInterceptor extends Interceptor {
     this.isInterceptorEnabled = true;
   }
 
+  @Frozen()
   disableInterception(): void {
     if (!this.isInterceptorEnabled) return;
 

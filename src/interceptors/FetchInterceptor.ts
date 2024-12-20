@@ -1,6 +1,6 @@
 import { NETWORK_REQUEST_HEADER } from '../constants';
 import { NetworkType } from '../types';
-import { formatRequestMethod, getHttpInterceptorId, keyValueToString } from '../utils';
+import { formatRequestMethod, Frozen, getHttpInterceptorId, keyValueToString } from '../utils';
 import HttpInterceptor from './HttpInterceptor';
 
 const originalFetch = global.fetch;
@@ -12,6 +12,7 @@ export default class FetchInterceptor extends HttpInterceptor {
     super();
   }
 
+  @Frozen()
   enableInterception() {
     if (this.isInterceptorEnabled) return;
 
@@ -126,6 +127,7 @@ export default class FetchInterceptor extends HttpInterceptor {
     this.isInterceptorEnabled = true;
   }
 
+  @Frozen()
   disableInterception() {
     if (!this.isInterceptorEnabled) return;
 

@@ -55,3 +55,11 @@ export const convertToCurl = (
 
   return curlCommand;
 };
+
+export function Frozen() {
+  return function (_target: Object) {
+    const [_, __, descriptor] = arguments as unknown as [Object, string, PropertyDescriptor];
+    descriptor.configurable = false;
+    descriptor.writable = false;
+  };
+}

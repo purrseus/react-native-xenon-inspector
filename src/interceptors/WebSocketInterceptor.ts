@@ -10,6 +10,7 @@ import type {
   WebSocketSendCallback,
 } from '../types';
 import { NetworkInterceptor } from './NetworkInterceptor';
+import { Frozen } from '../utils';
 
 const originalWebSocketConnect = NativeWebSocketModule.connect;
 const originalWebSocketSend = NativeWebSocketModule.send;
@@ -31,36 +32,43 @@ export default class WebSocketInterceptor extends NetworkInterceptor {
   private onErrorCallback: WebSocketOnErrorCallback = null;
   private onCloseCallback: WebSocketOnCloseCallback = null;
 
+  @Frozen()
   setConnectCallback(callback: typeof this.connectCallback) {
     this.connectCallback = callback;
     return this;
   }
 
+  @Frozen()
   setSendCallback(callback: typeof this.sendCallback) {
     this.sendCallback = callback;
     return this;
   }
 
+  @Frozen()
   setCloseCallback(callback: typeof this.closeCallback) {
     this.closeCallback = callback;
     return this;
   }
 
+  @Frozen()
   setOnOpenCallback(callback: typeof this.onOpenCallback) {
     this.onOpenCallback = callback;
     return this;
   }
 
+  @Frozen()
   setOnMessageCallback(callback: typeof this.onMessageCallback) {
     this.onMessageCallback = callback;
     return this;
   }
 
+  @Frozen()
   setOnErrorCallback(callback: typeof this.onErrorCallback) {
     this.onErrorCallback = callback;
     return this;
   }
 
+  @Frozen()
   setOnCloseCallback(callback: typeof this.onCloseCallback) {
     this.onCloseCallback = callback;
     return this;
@@ -141,6 +149,7 @@ export default class WebSocketInterceptor extends NetworkInterceptor {
     this.eventEmitter = null;
   }
 
+  @Frozen()
   enableInterception(): void {
     if (this.isInterceptorEnabled) return;
 
@@ -181,6 +190,7 @@ export default class WebSocketInterceptor extends NetworkInterceptor {
     this.isInterceptorEnabled = true;
   }
 
+  @Frozen()
   disableInterception(): void {
     if (!this.isInterceptorEnabled) return;
 
